@@ -1,0 +1,17 @@
+<div class="slick-image-gallery">
+  {{!-- did-insert e will-destroy sono modifier forniti da ember-render-modifiers (discourse include i modifiers moderni) --}}
+  <div class="slick-track-root"
+       {{did-insert this.setupSlick}}
+       {{will-destroy this.destroySlick}}>
+    {{#each @images as |img idx|}}
+      <div class="slick-slide">
+        <img src="{{img.url}}" alt="{{if img.alt img.alt ""}}" loading="lazy" />
+      </div>
+    {{/each}}
+  </div>
+
+  {{!-- opzionale: nav/preview basata su currentSlide --}}
+  {{#if this.currentSlide}}
+    <div class="slick-position">Slide: {{this.currentSlide}}</div>
+  {{/if}}
+</div>
