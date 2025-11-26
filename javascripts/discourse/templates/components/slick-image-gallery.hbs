@@ -1,0 +1,17 @@
+<div class="slick-image-gallery">
+  <div class="slick-track-root"
+       {{did-insert this.setupSlick}}
+       {{will-destroy this.destroySlick}}>
+    <div class="slick-track-root-inner">
+      {{#each @images as |img idx|}}
+        <div class="slick-slide">
+          <img src="{{img.url}}" alt="{{if img.alt img.alt ""}}" loading="lazy" />
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="slick-meta">
+    <span class="slick-current">Slide: {{this.currentSlide}}</span>
+  </div>
+</div>
